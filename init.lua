@@ -623,7 +623,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        -- mypy = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -635,6 +635,36 @@ require('lazy').setup({
         --
 
         elixirls = {},
+        -- [language-server.pylsp.config.pylsp]
+        -- plugins.pylsp_mypy.enabled = true
+        -- plugins.pylsp_mypy.live_mode = false
+        -- plugins.pylsp_mypy.dmypy = true
+        -- plugins.pylsp_mypy.report_progress = true
+        -- plugins.pylsp_mypy.follow-imports = "normal"
+        -- plugins.pycodestyle.maxLineLength = 125
+
+        pylsp = {
+          setting = {
+            pylsp = {
+              plugins = {
+                pylsp_mypy = {
+                  enabled = true,
+                  live_mode = false,
+                  dmypy = true,
+                  report_progress = true,
+                  follow_imports = 'normal',
+                  maxLineLength = 125,
+                },
+                ruff = { enabled = true },
+                pycodestyle = {
+                  enabled = true,
+                  ignore = { 'E501' },
+                  maxLineLength = 125,
+                },
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
