@@ -14,6 +14,9 @@ return {
       'ibhagwan/fzf-lua', -- optional
       'echasnovski/mini.pick', -- optional
     },
-    config = true,
+    config = function()
+      vim.keymap.set('n', '<leader>gg', require('neogit').open, { desc = '[G]it in neo[G]it dashboard' })
+    end,
   },
+  'yorickpeterse/vim-paper',
 }
