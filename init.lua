@@ -411,9 +411,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind in [D]iagnostics' })
       -- vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind in [R]esume' })
       vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = '[F]ind in [R]ecent' })
-      vim.keymap.set('n', '<leader>.', function()
-        builtin.find_files { cwd = require('telescope.utils').buffer_dir() }
-      end, { desc = 'Find in Files [.] current buffer dir' })
+      -- vim.keymap.set('n', '<leader>.', function()
+      --   builtin.find_files { cwd = require('telescope.utils').buffer_dir() }
+      -- end, { desc = 'Find in Files [.] current buffer dir' })
       -- vim.keymap.set('n', '<leader>f.', builtin.find_files, { desc = '[F]ind in [F]iles' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
