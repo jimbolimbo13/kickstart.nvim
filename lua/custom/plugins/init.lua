@@ -37,4 +37,10 @@ return {
       })
     end,
   },
+  {
+    'famiu/bufdelete.nvim',
+    config = function()
+      vim.keymap.set('n', '<leader>bd', require('bufdelete').bufdelete, { desc = 'Delete current buffer' })
+    end,
+  },
 }
