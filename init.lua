@@ -155,7 +155,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 3
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -190,10 +190,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Select next buffer' })
-vim.keymap.set('n', '<tab>', ':bnext<CR>', { desc = 'Select next buffer' })
-vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Select previous buffer' })
-vim.keymap.set('n', '<S-tab>', ':bprevious<CR>', { desc = 'Select previous buffer' })
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<CR>', { desc = 'Select next buffer' })
+vim.keymap.set('n', '<tab>', '<cmd>bnext<CR>', { desc = 'Select next buffer' })
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<CR>', { desc = 'Select previous buffer' })
+vim.keymap.set('n', '<S-tab>', '<cmd>bprevious<CR>', { desc = 'Select previous buffer' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -319,6 +319,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
+        { '<leader>b', group = '[B]uffer', mode = { 'n' } },
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
@@ -637,16 +638,10 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-        --
-
+        yamlls = {},
+        bashls = {},
+        -- fish_lsp = {},
         elixirls = {},
-        -- [language-server.pylsp.config.pylsp]
-        -- plugins.pylsp_mypy.enabled = true
-        -- plugins.pylsp_mypy.live_mode = false
-        -- plugins.pylsp_mypy.dmypy = true
-        -- plugins.pylsp_mypy.report_progress = true
-        -- plugins.pylsp_mypy.follow-imports = "normal"
-        -- plugins.pycodestyle.maxLineLength = 125
 
         pylsp = {
           settings = {
